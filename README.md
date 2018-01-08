@@ -1,4 +1,5 @@
-#Artista - Poišči umetnika v sebi
+# Artista - Poišči umetnika v sebi
+
 ## Synopsis
 
 Artista, edinstven portal za prodajo in nakup vseh vrst umetnin.
