@@ -11,11 +11,12 @@
     <title>Artista - Najdi umetnika v sebi</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?= CSS_URL . "bootstrap.css" ?>" rel="stylesheet">
+    <link href="<?= CSS_URL . "bootstrap.min.css" ?>" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="<?= CSS_URL . "shop-homepage.css" ?>" rel="stylesheet">
     <link href="<?= CSS_URL . "artista.css" ?>" rel="stylesheet">
+    <link href="<?= CSS_URL . "portfolio.css" ?>" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -116,113 +117,74 @@
         <div class="col-md-2">
             <p class="lead"></p>
             <div class="list-group">
-                <a href="slikarstvo.html" class="list-group-item">Slikarstvo</a>
-                <a href="kiparstvo.html" class="list-group-item">Kiparstvo</a>
-                <a href="grafiti.html" class="list-group-item">Grafiti</a>
-                <a href="TODO.html" class="list-group-item">Lesarstvo</a>
-                <a href="TODO.html" class="list-group-item">Proza</a>
+                <a href="#" class="list-group-item">Dodaj izdelek</a>
+                <a href="urediPortfolio.html" class="list-group-item">Uredi portfolio</a>
             </div>
         </div>
 
         <div class="col-md-9">
-            <div class="row">
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">30.00€</h4>
-                            <h4><a href="#">Zelo dobra slika</a>
-                            </h4>
-                            <p>Super kvaliteta!</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 Ocen</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                        </div>
+            <div class="main">
+                <hr>
+
+                <h3>Moji izdelki</h3>
+
+                <div class="column">
+                    <div class="content">
+                        <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="Mountains" style="width:100%">
+                        <h3>Naslov dela</h3>
+                        <p>Opis dela</p>
                     </div>
                 </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="<?= PIC_URL . "index-picture0.jpg" ?>" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">40.00€</h4>
-                            <h4><a href="#">Se bolj dobra slika</a>
-                            </h4>
-                            <p>Super kvaliteta!</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">12 Ocen</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="<?= PIC_URL . "index-picture1.jpg" ?>"  alt="Lights" style="width:100%">
+                        <h3>Naslov dela</h3>
+                        <p>Opis dela</p>
                     </div>
                 </div>
-
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">100.00€</h4>
-                            <h4><a href="#">Zelo draga slika</a>
-                            </h4>
-                            <p>Pestre barve!</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">31 Ocen</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="<?= PIC_URL . "index-picture0.jpg" ?>"  alt="Nature" style="width:100%">
+                        <h3>Naslov dela</h3>
+                        <p>Opis dela</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="<?= PIC_URL . "index-picture1.jpg" ?>"  alt="Mountains" style="width:100%">
+                        <h3>Naslov dela</h3>
+                        <p>Opis dela</p>
                     </div>
                 </div>
 
             </div>
-
         </div>
+
+
     </div>
-</div>
 
 
-</div>
+    <!-- /.container -->
 
-
-<!-- /.container -->
-
-<div class="container">
-    <hr>
-    <!-- Footer -->
-    <footer class="art-footer">
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Artista 2017</p>
+    <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer class="art-footer">
+            <div class="row" padding-right="0" paddingleft="0">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Artista 2017</p>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-</div>
-<!-- /.container -->
+    </div>
+    <!-- /.container -->
 
-<!-- jQuery -->
-<script src="<?= js_URL . "jquery.js" ?>></script>
+    <!-- jQuery -->
+    <script src="<?= js_URL . "jquery.js" ?>"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="<?= js_URL . "bootstrap.min.js" ?>></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?= js_URL . "bootstrap.min.js" ?>"></script>
 
 </body>
 
