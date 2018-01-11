@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+
+body {
+	font-family: "Century Gothic";
+}
+
+#bottom {
+	position:absolute;
+    width:100px;
+    height:100px;
+    left:40%;
+    margin-top:-50px;
+
+}
+
+
+
+
+#top {
+	margin:auto;
+	position:relative;
+	text-align: center;
+	font-size:40px;
+	margin-top: 50px;
+	color:#999;
+}
+
+
+
+
+.button {
+	background-color: whitesmoke;
+    color: dodgerblue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover {
+	border: solid 2px dodgerblue;
+	color: dodgerblue;
+	background-color: whitesmoke;
+}
+
+#naslov {
+	margin-top: 20px;
+	margin-left: auto;
+    text-align: center;
+	position:relative;
+}
+
+#vstopGost {
+    color:#999;
+    padding: 15px 32px;
+    text-align: center;
+    font-weight: bold;
+}
