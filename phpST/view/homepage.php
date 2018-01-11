@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img class="navbar-image" src="pictures/logo.png" id="logo" href="#">
+            <img class="navbar-image" src="<?= PIC_URL . "logo.png" ?>" id="logo" href="#">
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

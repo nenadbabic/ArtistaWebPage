@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: sinti
- * Date: 4. 06. 2017
- * Time: 23:01
- */
+
 require_once("model/UserDB.php");
 require_once("model/ProjectDB.php");
 require_once("ViewHelper.php");
