@@ -53,7 +53,7 @@
                         <li class="divider"></li>
                         <li><a href="#">Uredi profil</a></li>
                         <li class="divider"></li>
-                        <li><a href="portfolio.html">Moj Portfolio</a></li>
+                        <li><a href="<?= VIEW_URL . "portfolio.html" ?>">Moj Portfolio</a></li>
                     </ul>
                 </li>
             </ul>
@@ -116,11 +116,11 @@
         <div class="col-md-2">
             <p class="lead"></p>
             <div class="list-group">
-                <a href="slikarstvo.html" class="list-group-item">Slikarstvo</a>
-                <a href="kiparstvo.html" class="list-group-item">Kiparstvo</a>
-                <a href="grafiti.html" class="list-group-item">Grafiti</a>
-                <a href="TODO.html" class="list-group-item">Lesarstvo</a>
-                <a href="TODO.html" class="list-group-item">Proza</a>
+                <a href="<?= VIEW_URL . "slikarstvo.html" ?>" class="list-group-item">Slikarstvo</a>
+                <a href="<?= VIEW_URL . "kiparstvo.html" ?>" class="list-group-item">Kiparstvo</a>
+                <a href="<?= VIEW_URL . "grafiti.html" ?>" class="list-group-item">Grafiti</a>
+                <a href="<?= VIEW_URL . "lesarstvo.html" ?>" class="list-group-item">Lesarstvo</a>
+                <a href="<?= VIEW_URL . "proza.html" ?>" class="list-group-item">Proza</a>
             </div>
         </div>
 
@@ -219,10 +219,10 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<script src="<?= js_URL . "jquery.js" ?>></script>
+<script src="<?= js_URL . "jquery.js" ?>"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="<?= js_URL . "bootstrap.min.js" ?>></script>
+<script src="<?= js_URL . "bootstrap.min.js" ?>"></script>
 
 </body>
 

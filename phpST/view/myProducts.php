@@ -54,7 +54,7 @@
                         <li class="divider"></li>
                         <li><a href="#">Uredi profil</a></li>
                         <li class="divider"></li>
-                        <li><a href="portfolio.html">Moj Portfolio</a></li>
+                        <li><a href="<?= VIEW_URL . "portfolio.html" ?>">Moj Portfolio</a></li>
                     </ul>
                 </li>
             </ul>
@@ -118,7 +118,7 @@
             <p class="lead"></p>
             <div class="list-group">
                 <a href="#" class="list-group-item">Dodaj izdelek</a>
-                <a href="urediPortfolio.html" class="list-group-item">Uredi portfolio</a>
+                <a href="<?= VIEW_URL . "urediPortfolio.html" ?>" class="list-group-item">Uredi portfolio</a>
             </div>
         </div>
 

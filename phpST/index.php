@@ -13,7 +13,7 @@ define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
 define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "assets/css/");
 define("js_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "assets/js/");
 define("PIC_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "assets/pictures/");
-define("View_Url", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "view/");
+define("VIEW_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "view/");
 # Request path after /index.php/ with leading and trailing slashes removed
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
