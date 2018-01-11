@@ -9,8 +9,8 @@
         /*Image only BG fallback*/
 
         /*background = gradient + image pattern combo*/
-        background: 
-            linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+        background:
+            linear-gradient(rgba(236, 66, 89, 1), rgba(155, 89, 182, 0.6));
     }
 
     body {
@@ -55,7 +55,7 @@
     /*buttons*/
     #msform .action-button {
         width: 100px;
-        background: #27AE60;
+        background: #ec4259;
         font-weight: bold;
         color: white;
         border: 0 none;
