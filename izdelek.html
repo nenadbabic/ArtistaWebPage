@@ -11,21 +11,20 @@
     <title>Artista - Najdi umetnika v sebi</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= CSS_URL . "bootstrap.css" ?>" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
-    <link href="css/artista.css" rel="stylesheet">
-    <link href="css/portfolio.css" rel="stylesheet">
-    <link href="css/product.css" rel="stylesheet">
-   
+    <link href="<?= CSS_URL . "shop-homepage.css" ?>" rel="stylesheet">
+    <link href="<?= CSS_URL . "artista.css" ?>" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
     <style>
         #produktSlika {
             padding: 0px 15px 15px 15px;
@@ -44,7 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <img class="navbar-image" src="pictures/logo.png" id="logo" href="#">
+          <img class="navbar-image" src="<?= CSS_URL . "logo.png" ?>" id="logo" href="#">
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -134,7 +133,7 @@
 <div id="wrap">
       <!-- leva kolona je slika -->
       <div class="column">
-        <img id="produktSlika" class="active" src="pictures/logo.png" >
+        <img id="produktSlika" class="active" src="<?= PIC_URL . "logo.png" ?>" >
       </div>
 
 
