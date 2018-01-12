@@ -17,7 +17,6 @@ define("VIEW_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "view/");
 # Request path after /index.php/ with leading and trailing slashes removed
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
-session_start();
 
 $inactive = 7200;
 ini_set('session.gc_maxlifetime', $inactive);
@@ -26,6 +25,7 @@ if (time() > $_SESSION['expire']){
     session_unset();     // unset $_SESSION variable for this page
     session_destroy();
 }
+
 
 # The mapping of URLs. It is a simple array where:
 # - keys represent URLs
@@ -37,6 +37,22 @@ $urls = [
         UserController::showHomepage();
 
     },
+
+    "login" => function(){
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            UserController::login();
+
+        }else{
+            UserController::showHomepage();
+        }
+    },
+
+    "logout" => function(){
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            UserController::logout();
+        }
+    },
+
     "about" => function () {
         UserController::showAbout();
 
@@ -52,9 +68,6 @@ $urls = [
 
     "" => function() {
         ViewHelper::redirect(BASE_URL . "homepage");
-    },
-    "login" => function () {
-        UserController::showLoginRegister();
     },
 
     "login/user" => function () {

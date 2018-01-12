@@ -74,18 +74,18 @@
                                     or
                                     <form class="form" role="form" method="post" action="<?= BASE_URL . "login" ?>" accept-charset="UTF-8" id="login-nav">
                                         <div class="form-group">
-                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Email naslov" required>
+                                            <label class="sr-only" for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email naslov" required>
                                         </div>
                                         <div class="form-group">
-                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                            <input type="password" class="form-control" id="pwdhash" placeholder="Geslo" required>
+                                            <label class="sr-only" for="pwdhash">Password</label>
+                                            <input type="password" class="form-control" id="pwdhash" name="pwdhash" placeholder="Geslo" required>
 
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-block">Prijava</button>
                                         </div>
-                                        
+
                                     </form>
                                 </div>
                                 <div class="bottom text-center">

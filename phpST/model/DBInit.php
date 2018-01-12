@@ -9,7 +9,7 @@
 class DBInit
 {
     private static $host = "localhost";
-    private static $user = "test";
+    private static $user = "root";
     private static $password = "";
     private static $schema = "artista";
     private static $instance = null;

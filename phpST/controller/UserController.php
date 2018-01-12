@@ -46,52 +46,47 @@ class UserController
         ViewHelper::render("view/loginRegister.php", $variables);
     }
 
+    public static function logout(){
+        $_SESSION["login"] = null;
+        session_destroy();
+        ViewHelper::redirect(BASE_URL . "homepage");
+    }
+
 
     public static function login() {
 
-        $postOkay =  isset($_POST["loginUsername"]) && !empty($_POST["loginUsername"]) &&
-            isset($_POST["loginPassword"]) && !empty($_POST["loginPassword"]);
+        $postOkay =  isset($_POST["email"]) && !empty($_POST["email"]) &&
+            isset($_POST["pwdhash"]) && !empty($_POST["pwdhash"]);
 
         if ($postOkay){
-            $username = $_POST["loginUsername"];
-            $password = $_POST["loginPassword"];
+            $email = $_POST["email"];
+            $pwdhash = $_POST["pwdhash"];
 
-            $variable =  UserDB::getUser($username);
-            $userFetched = isset($variable);
+            $userdata =  UserDB::getUser($email);
+            $userFetched = isset($userdata);
 
             if ($userFetched){
-                $usr = $variable["Username"];
-                $passwd = $variable["Password"];
+
+
+                $usr = $userdata["email"];
+                $passwd = $userdata["pwdhash"];
                 $variables = [
-                    "user" => $variable
+                    "user" => $userdata
                 ];
-                if ($username == $usr && $password == $passwd){
-
-                    $_SESSION["login"] = "true";
-                    $_SESSION["username"] = $usr;
-                    $projects = [
-                        "projects" => ProjectDB::getAllProjects()
-                    ];
-
+                if ($email == $usr && $pwdhash == $passwd){
                     session_start();
+                    $_SESSION["login"] = "true";
+                    $_SESSION["email"] = $usr;
 
-                    $inactive = 7200;
-                    ini_set('session.gc_maxlifetime', $inactive);
-                    $_SESSION['expire'] = time() + $inactive;
-                    if (time() > $_SESSION['expire']){
-                        session_unset();     // unset $_SESSION variable for this page
-                        session_destroy();
-                    }
-
-                    ViewHelper::render("view/editPortfolio.php", $projects);
+                    ViewHelper::render("view/homepage.php", $userdata);
 
                 }else{
                     echo "Napaka";
-                    ViewHelper::redirect(BASE_URL . "login");
+                    ViewHelper::redirect(BASE_URL . "homepage");
                 }
             }
         }else{
-            self::showLoginRegister();
+            self::showHomepage();
         }
     }
 
