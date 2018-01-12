@@ -42,6 +42,10 @@ $urls = [
 
     },
 
+    "portfolio" => function(){
+        UserController::getUserTest();
+    },
+
     "projects" => function () {
         ProjectController::showProjects();
 

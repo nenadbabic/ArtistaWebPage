@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: sinti
- * Date: 4. 06. 2017
- * Time: 23:01
- */
-
 require_once("model/ProjectDB.php");
 require_once("ViewHelper.php");
 
@@ -16,7 +9,7 @@ class ProjectController
         $projects = [
             "projects" => ProjectDB::getAllProjects()
         ];
-        ViewHelper::render("view/projects.php", $projects);
+        ViewHelper::render("view/editPortfolio.php", $projects);
     }
 
     public static function showCreateProjectPage(){

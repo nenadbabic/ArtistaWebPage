@@ -112,6 +112,8 @@
 
 
 <div class="art-container">
+
+
     <div class="row">
         <div class="col-md-2">
             <p class="lead"></p>

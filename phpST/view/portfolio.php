@@ -129,7 +129,7 @@
                 <img src="pictures/uporabnik.JPG" style="width:10%">
                 <div id="opisOsebe">
                     <br>
-                    <p>Ime: Joze Slikar</p>
+                    <p>Ime: <?php ?> </p>
                     <P>E-naslov: slikar1975@gmail.com</p>
                     <p>Opis: Nek zelo deep quote alpa neki</p>
                 </div>

@@ -7,6 +7,14 @@ require_once("ViewHelper.php");
 
 class UserController
 {
+
+
+
+    public static function getUserTest($email){
+        $user = [ UserDB::getUser($email)];
+        ViewHelper::render("view/portfolio.php", $user);
+    }
+
     public static function getAll() {
         # Reads books from the database
         $variables = [
@@ -64,7 +72,7 @@ class UserController
                     $projects = [
                         "projects" => ProjectDB::getAllProjects()
                     ];
-                    ViewHelper::render("view/projects.php", $projects);
+                    ViewHelper::render("view/editPortfolio.php", $projects);
 
                 }else{
                     echo "Napaka";
@@ -87,7 +95,7 @@ class UserController
         if ($postOkay){
             UserDB::createUser($_POST["Username"],$_POST["Password"],$_POST["Name"],$_POST["Lastname"],$_POST["ProfilePicture"],$_POST["Email"]);
             echo "<script type='text/javascript'>alert('User created');</script>";
-            ViewHelper::render("view/projects.php", ["user" => ""]);
+            ViewHelper::render("view/editPortfolio.php", ["user" => ""]);
         }else{
             self::showLoginRegister();
         }
