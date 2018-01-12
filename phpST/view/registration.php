@@ -30,16 +30,16 @@
 </head>
 <body>
 
-    <form class="form" method="post" action="<?= BASE_URL . "register" ?>">
+    <form id="msform" class="form" method="post" action="<?= BASE_URL . "register" ?>">
         <h2 class="fs-title">Ustvari račun.</h2>
         <h3 class="fs-subtitle">Artista - Najdi umetnika v sebi!</h3>
-        <input type="text" name="fname" id="fname" placeholder="Ime" />
-        <input type="text" name="lname" id="lname" placeholder="Priimek" />
-        <input type="text" name="regEmail" id="regEmail" placeholder="Email" />
-        <input type="password" name="pass" id="pass" placeholder="Geslo" />
-        <input type="password" name="cpass" id="cpass" placeholder="Potrdi geslo" />
+        <input type="text" name="fname" id="fname" placeholder="Ime" required/>
+        <input type="text" name="lname" id="lname" placeholder="Priimek" required/>
+        <input type="text" name="regEmail" id="regEmail" placeholder="Email" required/>
+        <input type="password" name="pass" id="pass" placeholder="Geslo" required/>
+        <input type="password" name="cpass" id="cpass" placeholder="Potrdi geslo" required/>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Naprej</button>
+            <button type="submit" class="next action-button">Naprej</button>
         </div>
 
     </form>

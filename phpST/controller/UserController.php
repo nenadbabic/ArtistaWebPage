@@ -93,7 +93,6 @@ class UserController
     }
 
     public static function register(){
-        echo "V registru";
         $postOkay =  isset($_POST["fname"]) && !empty($_POST["fname"]) &&
             isset($_POST["lname"]) && !empty($_POST["lname"]) &&
             isset($_POST["regEmail"]) && !empty($_POST["regEmail"])&&
@@ -101,10 +100,9 @@ class UserController
             isset($_POST["cpass"]) && !empty($_POST["cpass"]) && ($_POST["pass"] == $_POST["cpass"]); // + preverjanje ce sta gesli enaki
 
         if ($postOkay){
-            echo "Post je okaj";
             UserDB::createUser($_POST["fname"].' '.$_POST["lname"],$_POST["regEmail"],$_POST["pass"],date("Y-m-d H:i:s"), 0);
             echo "<script type='text/javascript'>alert('Uporabnik ustvarjen!');</script>";
-            ViewHelper::render("view/editPortfolio.php", ["user" => ""]);
+            ViewHelper::render("view/homepage.php", ["user" => ""]);
         }else{
             self::showLoginRegister();
         }
