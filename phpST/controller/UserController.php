@@ -89,16 +89,17 @@ class UserController
     }
 
     public static function register(){
-        $postOkay =  isset($_POST["Name"]) && !empty($_POST["Name"]) &&
-            isset($_POST["Lastname"]) && !empty($_POST["Lastname"]) &&
-            isset($_POST["Username"]) && !empty($_POST["Username"])&&
-            isset($_POST["Email"]) && !empty($_POST["Email"])&&
-            isset($_POST["Password"]) && !empty($_POST["Password"]); //&&
-//            isset($_POST["ProfilePicture"]) && !empty($_POST["ProfilePicture"]);
+        echo "V registru";
+        $postOkay =  isset($_POST["fname"]) && !empty($_POST["fname"]) &&
+            isset($_POST["lname"]) && !empty($_POST["lname"]) &&
+            isset($_POST["regEmail"]) && !empty($_POST["regEmail"])&&
+            isset($_POST["pass"]) && !empty($_POST["pass"])&&
+            isset($_POST["cpass"]) && !empty($_POST["cpass"]) && ($_POST["pass"] == $_POST["cpass"]); // + preverjanje ce sta gesli enaki
 
         if ($postOkay){
-            UserDB::createUser($_POST["Username"],$_POST["Password"],$_POST["Name"],$_POST["Lastname"],$_POST["ProfilePicture"],$_POST["Email"]);
-            echo "<script type='text/javascript'>alert('User created');</script>";
+            echo "Post je okaj";
+            UserDB::createUser($_POST["fname"].' '.$_POST["lname"],$_POST["regEmail"],$_POST["pwdhash"],0);
+            echo "<script type='text/javascript'>alert('Uporabnik ustvarjen!');</script>";
             ViewHelper::render("view/editPortfolio.php", ["user" => ""]);
         }else{
             self::showLoginRegister();

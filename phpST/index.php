@@ -82,14 +82,12 @@ $urls = [
     },
 
     "register" => function(){
+        echo "123123";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             UserController::register();
-
         }else{
-            UserController::showLoginRegister();
+            UserController::showHomepage();
         }
-
-
     },
 
     "logout"  => function(){
