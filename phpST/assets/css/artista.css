@@ -154,10 +154,11 @@ body{
 .art-footer{ 
   position: absolute;
   bottom: 0;
-  left: 10px;
-  right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
   width: 100%;
-  display: overlay;
+  line-height: 20px;
 }
 
 .art-footer-columns{
@@ -186,6 +187,14 @@ body{
 /*---------------MOBILE DEVICES--------------------*/
 
 @media screen and (max-width:632px){
-
+    .art-footer{
+        position: absolute;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+        width: 100%;
+        line-height: 20px;
+    }
 
 }

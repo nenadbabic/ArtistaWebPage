@@ -7,9 +7,6 @@ require_once("ViewHelper.php");
 
 class UserController
 {
-
-
-
     public static function getUserTest($email){
         $user = [ UserDB::getUser($email)];
         ViewHelper::render("view/portfolio.php", $user);
@@ -74,9 +71,10 @@ class UserController
                     "user" => $userdata
                 ];
                 if ($email == $usr && $pwdhash == $passwd){
-                    session_start();
+
                     $_SESSION["login"] = "true";
-                    $_SESSION["email"] = $usr;
+                    echo $userdata["name"];
+                    $_SESSION["user_name"] = $userdata["name"];
 
                     ViewHelper::render("view/homepage.php", $userdata);
 

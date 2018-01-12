@@ -18,6 +18,7 @@ define("VIEW_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "view/");
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
 
+session_start();
 $inactive = 7200;
 ini_set('session.gc_maxlifetime', $inactive);
 $_SESSION['expire'] = time() + $inactive;
