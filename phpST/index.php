@@ -48,7 +48,6 @@ $urls = [
 
     "projects" => function () {
         ProjectController::showProjects();
-
     },
 
     "" => function() {

@@ -72,6 +72,17 @@ class UserController
                     $projects = [
                         "projects" => ProjectDB::getAllProjects()
                     ];
+
+                    session_start();
+
+                    $inactive = 7200;
+                    ini_set('session.gc_maxlifetime', $inactive);
+                    $_SESSION['expire'] = time() + $inactive;
+                    if (time() > $_SESSION['expire']){
+                        session_unset();     // unset $_SESSION variable for this page
+                        session_destroy();
+                    }
+
                     ViewHelper::render("view/editPortfolio.php", $projects);
 
                 }else{
