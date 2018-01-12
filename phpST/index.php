@@ -81,6 +81,11 @@ $urls = [
 
     },
 
+    "registrationpage" => function () {
+        UserController::showRegistrationPage();
+
+    },
+
     "register" => function(){
         echo "123123";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {

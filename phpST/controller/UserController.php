@@ -29,6 +29,10 @@ class UserController
         ViewHelper::render("view/homepage.php", $variable);
     }
 
+    public static function showRegistrationPage(){
+        ViewHelper::render("view/registration.php");
+    }
+
 
     public static function showAbout(){
         $variable = [
@@ -98,7 +102,7 @@ class UserController
 
         if ($postOkay){
             echo "Post je okaj";
-            UserDB::createUser($_POST["fname"].' '.$_POST["lname"],$_POST["regEmail"],$_POST["pwdhash"],0);
+            UserDB::createUser($_POST["fname"].' '.$_POST["lname"],$_POST["regEmail"],$_POST["pass"],date("Y-m-d H:i:s"), 0);
             echo "<script type='text/javascript'>alert('Uporabnik ustvarjen!');</script>";
             ViewHelper::render("view/editPortfolio.php", ["user" => ""]);
         }else{

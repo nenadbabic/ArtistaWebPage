@@ -103,7 +103,7 @@
                                             </form>
                                         </div>
                                         <div class="bottom text-center">
-                                            New here ? <a href="<?= BASE_URL . "registration.html" ?>"><b>Registracija</b></a>
+                                            <a href="<?= BASE_URL . "registrationpage" ?>"><b>Registracija</b></a>
                                         </div>
                                     </div>
                                 </li>
