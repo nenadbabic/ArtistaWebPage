@@ -116,7 +116,7 @@ $urls = [
 
 
 
-    ];
+];
 
 # The actual router.
 # Tries to invoke the function that is mapped for the given path

@@ -2,7 +2,7 @@
 
 
 require_once("model/UserDB.php");
-require_once("model/ProjectDB.php");
+require_once("model/ListingDB.php");
 require_once("ViewHelper.php");
 
 class UserController
@@ -23,14 +23,10 @@ class UserController
     }
 
     public static function showHomepage(){
-        $variable = [
-            "user" => ""
+        $listings = [
+            "listings" => ListingDB::getAllListings()
         ];
-        ViewHelper::render("view/homepage.php", $variable);
-    }
-
-    public static function showRegistrationPage(){
-        ViewHelper::render("view/registration.php");
+        ViewHelper::render("view/homepage.php", $listings);
     }
 
 
@@ -71,16 +67,19 @@ class UserController
 
                 $usr = $userdata["email"];
                 $passwd = $userdata["pwdhash"];
-                $variables = [
-                    "user" => $userdata
-                ];
+
                 if ($email == $usr && $pwdhash == $passwd){
 
                     $_SESSION["login"] = "true";
-                    echo $userdata["name"];
                     $_SESSION["user_name"] = $userdata["name"];
+                    $user = [
+                        "user" => $userdata
+                    ];
+                    $listings = [
+                       "listings" => ListingDB::getAllListings()
+                    ];
 
-                    ViewHelper::render("view/homepage.php", $userdata);
+                    ViewHelper::render("view/homepage.php", $listings);
 
                 }else{
                     echo "Napaka";

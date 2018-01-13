@@ -53,7 +53,7 @@
                         <li class="divider"></li>
                         <li><a href="#">Uredi profil</a></li>
                         <li class="divider"></li>
-                        <li><a href="<?= VIEW_URL . "portfolio.html" ?>">Moj Portfolio</a></li>
+                        <li><a href="<?= VIEW_URL . "portfolio.php" ?>">Moj Portfolio</a></li>
                     </ul>
                 </li>
             </ul>
@@ -139,71 +139,66 @@
 
         <div class="col-md-9">
             <div class="row">
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">30.00€</h4>
-                            <h4><a href="#">Zelo dobra slika</a>
-                            </h4>
-                            <p>Super kvaliteta!</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 Ocen</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="<?= PIC_URL . "index-picture0.jpg" ?>" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">40.00€</h4>
-                            <h4><a href="#">Se bolj dobra slika</a>
-                            </h4>
-                            <p>Super kvaliteta!</p>
-                        </div>
-                        <div class="ratings">
-                            <p class="pull-right">12 Ocen</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                    if (isset($_SESSION["login"])){
+                        foreach ($listings as $listing){
 
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="thumbnail">
-                        <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
-                        <div class="caption">
-                            <h4 class="pull-right">100.00€</h4>
-                            <h4><a href="#">Zelo draga slika</a>
-                            </h4>
-                            <p>Pestre barve!</p>
+                            ?><div class="col-sm-4 col-lg-4 col-md-4">
+
+                            <div class="thumbnail">
+                                <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right">30.00€</h4>
+                                    <h4><a href="#"><?= $listing["name"] ?></a>
+                                    </h4>
+                                    <p>Super kvaliteta!</p>
+                                </div>
+                                <div>
+                                    <button> Kupi </button>
+                                </div>
+
+                                <div class="ratings">
+                                    <p class="pull-right">15 Ocen</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            </div>
+                        <?php }
+                    }else{
+                        foreach ($listings as $listing){
+
+                        ?><div class="col-sm-4 col-lg-4 col-md-4">
+
+                            <div class="thumbnail">
+                                <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
+                                <div class="caption">
+                                    <h4 class="pull-right"><?= $listing["Price"] ?>€</h4>
+                                    <h4><a href="#"><?= $listing["name"] ?></a>
+                                    </h4>
+                                    <p>Super kvaliteta!</p>
+                                </div>
+
+                                <div class="ratings">
+                                    <p class="pull-right">15 Ocen</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ratings">
-                            <p class="pull-right">31 Ocen</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    <?php }
+                     } ?>
 
             </div>
 
