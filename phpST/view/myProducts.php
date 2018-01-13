@@ -127,7 +127,19 @@
                 <hr>
 
                 <h3>Moji izdelki</h3>
+                <?php
+                foreach ($listings as $listing){
 
+                    ?><div class="column">
+                        <div class="content">
+                            <img href="#" src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="Mountains" style="width:100%">
+                            <h3><?= $listing["name"] ?></h3>
+                            <p><?= $listing["Description"] ?></p>
+                        </div>
+                    </div>
+                <?php }?>
+
+<!--
                 <div class="column">
                     <div class="content">
                         <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="Mountains" style="width:100%">
@@ -156,7 +168,7 @@
                         <p>Opis dela</p>
                     </div>
                 </div>
-
+-->
             </div>
         </div>
 

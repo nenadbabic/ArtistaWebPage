@@ -18,6 +18,17 @@ class ListingDB
         return $statement->fetchAll();
     }
 
+    public static function getMyListings($id){
+        $db = DBInit::getInstance(); # user.name = 'Anton Banana'
+        $statement = $db->prepare("SELECT listing.ID, Listing.Seller, Listing.Price, Listing.Description, listing.timestamp, listing.category, user.id, user.name 
+                                            FROM Listing INNER JOIN user ON Listing.seller = user.id AND user.id = :id
+                                 ");
+        $statement->bindParam(":id", $id );
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
     public static function getListingById($id){
         $db = DBInit::getInstance();
         $statement = $db->prepare("Select * from listing

@@ -60,7 +60,11 @@ $urls = [
     },
 
     "portfolio" => function(){
-        UserController::getUserTest();
+        UserController::showPortfolioPage();
+    },
+
+    "myproduct" => function(){
+        UserController::showMyProducts();
     },
 
     "projects" => function () {

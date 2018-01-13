@@ -29,6 +29,19 @@ class UserController
         ViewHelper::render("view/homepage.php", $listings);
     }
 
+    public static function showRegistrationPage(){
+        ViewHelper::render("view/registration.php");
+    }
+
+    public static function showPortfolioPage(){
+        echo "Pride v portfolio";
+        $info = [
+            "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
+            "information" => UserDB::getUser($_SESSION["userData"])
+        ];
+        ViewHelper::render("view/portfolio.php", $info);
+    }
+
 
     public static function showAbout(){
         $variable = [
@@ -41,6 +54,13 @@ class UserController
             "user" => ""
         ];
         ViewHelper::render("view/loginRegister.php", $variables);
+    }
+
+    public static function showMyProducts(){
+        $listings = [
+            "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"])
+        ];
+        ViewHelper::render("view/myProducts.php", $listings);
     }
 
     public static function logout(){
@@ -56,10 +76,10 @@ class UserController
             isset($_POST["pwdhash"]) && !empty($_POST["pwdhash"]);
 
         if ($postOkay){
-            $email = $_POST["email"];
+            $email = $_POST["email"]; #email nastavi preden dobi userdata zato ne moremo spremeniti
             $pwdhash = $_POST["pwdhash"];
 
-            $userdata =  UserDB::getUser($email);
+            $userdata =  UserDB::getUserByEmail($email); #Napaka on poslje email v getUser, a getUser potrebuje celoten userData TODO
             $userFetched = isset($userdata);
 
             if ($userFetched){
@@ -71,6 +91,7 @@ class UserController
                 if ($email == $usr && $pwdhash == $passwd){
 
                     $_SESSION["login"] = "true";
+                    $_SESSION["userData"] = $userdata;
                     $_SESSION["user_name"] = $userdata["name"];
                     $user = [
                         "user" => $userdata

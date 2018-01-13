@@ -125,46 +125,28 @@
         <div class="col-md-9">
             <div class="main">
 
-                <h2>JSlikar</h2>
-                <img src="pictures/uporabnik.JPG" style="width:10%">
+                <h2><?= substr($information["email"], 0, strpos($information["email"], '@'));?></h2>
+                <img src="<?= PIC_URL . "uporabnik.JPG" ?>" style="width:10%">
                 <div id="opisOsebe">
                     <br>
-                    <p>Ime: <?php ?> </p>
-                    <P>E-naslov: slikar1975@gmail.com</p>
-                    <p>Opis: Nek zelo deep quote alpa neki</p>
+                    <p>Ime: <?= $information["name"] ?> </p>
+                    <P>E-naslov: <?= $information["email"] ?></p>
                 </div>
                 <hr>
 
                 <h3>PORTFOLIO</h3>
 
-                <div class="column">
+                <?php
+                foreach ($listings as $listing){
+
+                    ?><div class="column">
                     <div class="content">
-                        <img src="pictures/index-picture1.jpg" alt="Mountains" style="width:100%">
-                        <h3>Naslov dela</h3>
-                        <p>Opis dela</p>
+                        <img href="#" src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="Mountains" style="width:100%">
+                        <h3><?= $listing["name"] ?></h3>
+                        <p><?= $listing["Description"] ?></p>
                     </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="pictures/index-picture1.jpg" alt="Lights" style="width:100%">
-                        <h3>Naslov dela</h3>
-                        <p>Opis dela</p>
                     </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="pictures/index-picture0.jpg" alt="Nature" style="width:100%">
-                        <h3>Naslov dela</h3>
-                        <p>Opis dela</p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="content">
-                        <img src="pictures/index-picture1.jpg" alt="Mountains" style="width:100%">
-                        <h3>Naslov dela</h3>
-                        <p>Opis dela</p>
-                    </div>
-                </div>
+                <?php }?>
 
             </div>
         </div>

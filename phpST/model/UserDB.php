@@ -4,7 +4,21 @@ require_once "DBInit.php";
 
 class UserDB
 {
-    public static function getUser($email){
+    public static function getUser($userdata){
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("SELECT id, name, email, pwdhash, regTimestamp, type
+                                     FROM user
+                                     WHERE email = :email 
+                                 ");
+        $statement->bindParam(":email", $userdata["email"], PDO::PARAM_STR);
+        $statement->execute();
+        $user = $statement->fetch();
+        if ($user != null) {
+            return $user;
+        }
+    }
+
+    public static function getUserByEmail($email){
         $db = DBInit::getInstance();
         $statement = $db->prepare("SELECT id, name, email, pwdhash, regTimestamp, type
                                      FROM user
