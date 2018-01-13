@@ -34,10 +34,10 @@ class UserController
     }
 
     public static function showPortfolioPage(){
-        echo "Pride v portfolio";
         $info = [
             "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
-            "information" => UserDB::getUser($_SESSION["userData"])
+            "information" => UserDB::getUser($_SESSION["userData"]),
+            "description" => UserDB::getDescriptionById($_SESSION["userData"]["id"])
         ];
         ViewHelper::render("view/portfolio.php", $info);
     }

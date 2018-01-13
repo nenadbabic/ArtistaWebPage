@@ -150,7 +150,7 @@
                                 <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
                                 <div class="caption">
                                     <h4 class="pull-right">30.00€</h4>
-                                    <h4><a href="#"><?= $listing["name"] ?></a>
+                                    <h4><a href="#"><?= $listing["lname"] ?></a>
                                     </h4>
                                     <p>Super kvaliteta!</p>
                                 </div>

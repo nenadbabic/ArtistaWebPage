@@ -10,7 +10,7 @@ class ListingDB
 {
     public static function getAllListings(){
         $db = DBInit::getInstance();
-        $statement = $db->prepare("SELECT listing.ID, Listing.Seller, Listing.Price, Listing.Description, listing.timestamp, listing.category, user.id, user.name
+        $statement = $db->prepare("SELECT listing.ID, Listing.Seller, Listing.Price, Listing.Description, listing.timestamp, listing.category, listing.name as lname, user.id, user.name
                                             FROM Listing INNER JOIN user ON Listing.seller = user.id
                                  ");
         $statement->execute();
@@ -20,7 +20,7 @@ class ListingDB
 
     public static function getMyListings($id){
         $db = DBInit::getInstance(); # user.name = 'Anton Banana'
-        $statement = $db->prepare("SELECT listing.ID, Listing.Seller, Listing.Price, Listing.Description, listing.timestamp, listing.category, user.id, user.name 
+        $statement = $db->prepare("SELECT listing.ID, Listing.Seller, Listing.Price, Listing.Description, listing.timestamp, listing.category, listing.name as lname, user.id, user.name 
                                             FROM Listing INNER JOIN user ON Listing.seller = user.id AND user.id = :id
                                  ");
         $statement->bindParam(":id", $id );

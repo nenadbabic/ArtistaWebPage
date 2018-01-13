@@ -32,6 +32,16 @@ class UserDB
         }
     }
 
+    public static function getDescriptionById($id){
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("select description from portfolio where seller = :id");
+        $statement->bindParam(":id", $id, PDO::PARAM_STR);
+        $statement->execute();
+        $description = $statement->fetch();
+
+        return implode("|",$description);
+    }
+
     public static function getAllUsers() {
         $db = DBInit::getInstance();
 
@@ -54,6 +64,15 @@ class UserDB
         $statement->bindParam(":pwdhash", $pwdhash);
         $statement->bindParam(":type", $type);
         $statement->execute();
+
+        $statement1 = $db->prepare("SELECT id FROM user WHERE email = :email ");
+        $statement1->bindParam(":email", $email, PDO::PARAM_STR);
+        $statement1->execute();
+        $id = $statement1->fetch();
+
+        $statement2 = $db->prepare("INSERT INTO seller (id) VALUES (:id)");
+        $statement2->bindParam(":id", $id);
+        $statement2->execute();
     }
 
 
