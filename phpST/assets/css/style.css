@@ -7,6 +7,10 @@ body {
   width: 600px;
 }
 
+
+#formPostavitev{
+  padding-top: 100px;
+}
 .body-text {
   padding: 0 20px 30px 20px;
   font-family: "Roboto";

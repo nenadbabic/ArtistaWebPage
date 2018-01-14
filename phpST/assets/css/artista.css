@@ -115,6 +115,49 @@ body{
   height: 100%;
 }
 
+button {
+    background: #ec4259;
+    background-image: -webkit-linear-gradient(top,#ec4259, #ef677a);
+    background-image: -moz-linear-gradient(top, #ec4259, #ef677a);
+    background-image: -ms-linear-gradient(top, #ec4259, #ef677a);
+    background-image: -o-linear-gradient(top, #ec4259, #ef677a);
+    background-image: linear-gradient(to bottom, #ec4259, #ef677a);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 100%;
+}
+button:hover {
+    background: #ec4259;
+    background-image: -webkit-linear-gradient(top, #ec4259, #ef677a);
+    background-image: -moz-linear-gradient(top, #ec4259, #ef677a);
+    background-image: -ms-linear-gradient(top, #ec4259, #ef677a);
+    background-image: -o-linear-gradient(top, #ec4259, #ef677a);
+    background-image: linear-gradient(to bottom, #ec4259, #ef677a);
+    text-decoration: none;
+    width: 100%;
+}
+
+
+button > a{
+
+    color: white;
+    font-size: 18px;
+
+}
+button > a:hover{
+
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+
+}
+
 .art-container{  
   margin: 20px 0px 0px 10px;   
 }
