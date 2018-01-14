@@ -8,11 +8,23 @@
 require_once "DBInit.php";
 class ListingDB
 {
-    public static function getAllListings(){
+    /*public static function getAllListings(){
         $db = DBInit::getInstance();
         $statement = $db->prepare("SELECT listing.ID, Listing.Seller, Listing.Price, Listing.Description, listing.timestamp, listing.category, listing.name as lname, user.id, user.name
                                             FROM Listing INNER JOIN user ON Listing.seller = user.id
                                  ");
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }*/
+    public static function getAllListings(){
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("SELECT l.*,u.name AS username, p.path 
+                        FROM user u INNER JOIN seller s ON u.id = s.id 
+                        INNER JOIN listing l ON s.id = l.seller 
+                        INNER JOIN listing_picture lp ON l.id = lp.listing_id 
+                        INNER JOIN picture p ON lp.picture_id = p.id 
+                        GROUP BY l.id");
         $statement->execute();
 
         return $statement->fetchAll();
@@ -57,12 +69,17 @@ class ListingDB
         $statement->bindParam(":productName" , $newListing["productName"], PDO::PARAM_STR);
         $statement->execute();
 
-        $statement2 = $db->prepare( "CALL proc_addListingPicture(:sellerid, :path)");
-        $statement2->bindParam(":sellerid" , $_SESSION["userData"]["id"], PDO::PARAM_INT);
+        $getListingID = $db->prepare("SELECT id FROM listing ORDER BY id DESC LIMIT 1");
+        $getListingID->execute();
+        $id = $getListingID->fetch();
+        $id = implode("",$id);
+
+        $statement2 = $db->prepare( "CALL proc_addListingPicture(:listingID, :path)");
+        $statement2->bindParam(":listingID" , $id, PDO::PARAM_INT);
         $statement2->bindParam(":path",$newListing["picture"], PDO::PARAM_STR);
-        if($statement2->execute()){
-            echo "poklican";
-        }
+        $statement2->execute();
+
+
 
     }
 

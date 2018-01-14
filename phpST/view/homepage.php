@@ -147,14 +147,15 @@
                             ?><div class="col-sm-4 col-lg-4 col-md-4">
 
                             <div class="thumbnail">
-                                <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
+                                <h4><a href="#"><?= $listing["name"] ?></a>
+                                </h4>
+                                <img src="<?= UPIC_URL . $listing["path"] ?>" alt="">
                                 <div class="caption">
                                     <h4 class="pull-right">30.00€</h4>
-                                    <h4><a href="#"><?= $listing["lname"] ?></a>
+
+                                    <h4><a href="#"><?= $listing["username"] ?></a>
                                     </h4>
-                                    <h4><a href="#"><?= $listing["name"] ?></a>
-                                    </h4>
-                                    <p><?= $listing["Description"] ?></p>
+                                    <p><?= $listing["description"] ?></p>
                                 </div>
                                 <div>
                                     <button> Kupi </button>
@@ -176,29 +177,29 @@
                     }else{
                         foreach ($listings as $listing){
 
-                        ?><div class="col-sm-4 col-lg-4 col-md-4">
+                        ?><div class="thumbnail">
+                            <h4><a href="#"><?= $listing["name"] ?></a>
+                            </h4>
+                            <img src="<?= UPIC_URL . $listing["path"] ?>" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">30.00€</h4>
 
-                            <div class="thumbnail">
-                                <img src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="">
-                                <div class="caption">
-                                    <h4 class="pull-right"><?= $listing["Price"] ?>€</h4>
-                                    <h4><a href="#"><?= $listing["name"] ?></a>
-                                    </h4>
-                                    <p><?= $listing["Description"] ?></p>
-                                </div>
-
-                                <div class="ratings">
-                                    <p class="pull-right">15 Ocen</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
+                                <h4><a href="#"><?= $listing["username"] ?></a>
+                                </h4>
+                                <p><?= $listing["description"] ?></p>
                             </div>
-                        </div>
+
+                            <div class="ratings">
+                                <p class="pull-right">15 Ocen</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                            </div>
                     <?php }
                      } ?>
 

@@ -7,6 +7,7 @@
  */
 
 require_once("model/ListingDB.php");
+require_once ("controller/UserController.php");
 require_once("ViewHelper.php");
 
 
@@ -47,7 +48,7 @@ class ListingController
                     ];
 
                     ListingDB::uploadListing($newListing);
-                    ViewHelper::render("view/portfolio.php");
+                    UserController::showPortfolioPage();
                 }
 
 

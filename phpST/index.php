@@ -15,6 +15,8 @@ define("CSS_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "assets/css/");
 define("js_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "assets/js/");
 define("PIC_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "assets/pictures/");
 define("VIEW_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php") . "view/");
+
+define("UPIC_URL", rtrim($_SERVER["SCRIPT_NAME"], "index.php"));
 # Request path after /index.php/ with leading and trailing slashes removed
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 
@@ -62,10 +64,10 @@ $urls = [
 
     },
 
-    "logout" => function(){
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            UserController::logout();
-        }
+    "logout"  => function(){
+        session_unset();
+        session_destroy();
+        UserController::showHomepage();
     },
   
 	"upload" => function(){
