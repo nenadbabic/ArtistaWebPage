@@ -136,17 +136,10 @@
                                                name="vrstaIzdelka" value="2">
                                         <label for="kip">Kip</label>
 
-                                        <input type="radio" id="grafit"
+                                        <input type="radio" id="drugo"
                                                name="vrstaIzdelka" value="3">
-                                        <label for="grafit">Grafit</label>
+                                        <label for="drugo">Drugo</label>
 
-                                        <input type="radio" id="lesni izdelek"
-                                               name="vrstaIzdelka" value="3">
-                                        <label for="lesni izdelek">Lesni izdelek</label>
-
-                                        <input type="radio" id="proza"
-                                               name="vrstaIzdelka" value="4">
-                                        <label for="Proza">Proza</label>
                                     </div>
                                 </div>
                                 <div class="form-group">

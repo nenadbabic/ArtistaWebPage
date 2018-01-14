@@ -24,7 +24,7 @@ class UserController
 
     public static function showPortfolioPage(){
         $info = [
-            "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
+            "listings" => ListingDB::getMyListings(UserDB::getSellerID($_SESSION["userData"]["id"])),
             "information" => UserDB::getUser($_SESSION["userData"]),
             "description" => UserDB::getDescriptionById(UserDB::getSellerID($_SESSION["userData"]["id"])),
             "profilePath" => UserDB::getProfilePath(UserDB::getSellerID($_SESSION["userData"]["id"]))
@@ -80,7 +80,7 @@ class UserController
 
     public static function showMyProducts(){
         $listings = [
-            "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"])
+            "listings" => ListingDB::getMyListings(UserDB::getSellerID($_SESSION["userData"]["id"]))
         ];
         ViewHelper::render("view/myProducts.php", $listings);
     }

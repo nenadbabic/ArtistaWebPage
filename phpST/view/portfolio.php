@@ -111,7 +111,7 @@
                         <img href="#" src="<?= UPIC_URL . $listing["path"] ?>" alt="Mountains" style="width:100%">
                         <h3><?= $listing["name"] ?></h3>
                         <p><?= $listing["description"] ?></p>
-                        <h4><?= $listing["price"] ?></h4>
+                        <h4><?= $listing["price"] ?> €</h4>
                     </div>
                     </div>
                 <?php }?>

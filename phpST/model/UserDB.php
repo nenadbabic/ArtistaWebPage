@@ -99,6 +99,15 @@ class UserDB
         $statement->bindParam(":id", $identifikator);
         $statement->execute();
         */
+        /*
+         * Nastavljanje slike
+         */
+        $temp = UserDB::getSellerID($identifikator);
+        $path = UPIC_URL . "uporabnik.PNG";
+        $statement2 = $db->prepare( "CALL proc_addProfilePicture(:sellerID, :path)");
+        $statement2->bindParam(":sellerID" , $temp, PDO::PARAM_INT);
+        $statement2->bindParam(":path", $path, PDO::PARAM_STR);
+        $statement2->execute();
     }
 
     public static function getSellerID($id){
@@ -126,6 +135,9 @@ class UserDB
         $statement = $db->prepare("SELECT path FROM picture where seller = :sellerId and isProfile = 1");
         $statement->bindParam(":sellerId", $sellerId);
         $statement->execute();
+        if(!$statement){
+            return "";
+        }
         return implode("",$statement->fetch());
     }
 
