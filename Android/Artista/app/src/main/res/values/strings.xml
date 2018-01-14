@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Artista</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="data_loading">Prosimo, počakajte trenutek</string>
+    <string name="title_launch">Artista</string>
+    <string name="registracija">Registracija</string>
+    <string name="prijava">Prijava</string>
+    <string name="pregled_oglasov">Pregled oglasov</string>
+    <string name="dodaj_nov_oglas">Dodaj nov oglas</string>
+    <string name="odjava">Odjava</string>
+    <string name="naslov_umetnine">Naslov umetnine:</string>
+    <string name="cena">Cena:</string>
+    <string name="opis">Opis:</string>
+    <string name="dodajte_fotografijo">Dodajte fotografijo</string>
+    <string name="izberi_sliko">Izberi sliko</string>
+</resources>
