@@ -128,9 +128,12 @@ class UserController
                     ViewHelper::render("view/homepage.php", $listings);
 
                 }else{
-                    echo "Napaka";
+                    echo "<script type='text/javascript'>alert('Napaka! Napacno uporabnisko ime ali geslo.');</script>";
                     ViewHelper::redirect(BASE_URL . "homepage");
                 }
+            }else{
+                echo "<script type='text/javascript'>alert('Napaka! Napacno uporabnisko ime ali geslo.');</script>";
+                self::showHomepage();
             }
         }else{
             self::showHomepage();

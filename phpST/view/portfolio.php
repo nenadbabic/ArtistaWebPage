@@ -29,34 +29,34 @@
 <body>
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header bg-art">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <img class="navbar-image" src="<?= PIC_URL . "logo.png" ?>" id="logo" href="#">
-        </div>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header bg-art">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img href="<?= BASE_URL . "homepage"?>" class="navbar-image" src="<?= PIC_URL . "logo.png" ?>" id="logo" href="#">
+            </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse bg-art" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav ">
-                <li class="bg-art"><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown">Moj Profil <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Moji izdelki</a></li>
-                        <li><a href="#">Dodaj nov izdelek</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Uredi profil</a></li>
-                        <li class="divider"></li>
-                        <li><a href="portfolio.html">Moj Portfolio</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse bg-art" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav ">
+                    <li class="bg-art"><a href="<?= BASE_URL . "homepage"?>">Domov</a></li>
+                    <li class="bg-art"><a href="<?= BASE_URL . "about"?>">O nas</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown">Moj Profil <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="<?= BASE_URL . "upload"?>">Dodaj nov izdelek</a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?= BASE_URL . "editportfolio"?>">Uredi profil</a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?= BASE_URL . "portfolio"?>">Moj Portfolio</a></li>
+                        </ul>
+                    </li>
+                </ul>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
@@ -82,9 +82,7 @@
         <div class="col-md-2">
             <p class="lead"></p>
             <div class="list-group">
-                <a href="#" class="list-group-item">Dodaj izdelek</a>
-                <a href="mojiIzdelki.html" class="list-group-item">Moji izdelki</a>
-                <a href="urediPortfolio.html" class="list-group-item">Uredi portfolio</a>
+                <a href="<?= BASE_URL . "upload"?>" class="list-group-item">Dodaj izdelek</a>
             </div>
         </div>
 
