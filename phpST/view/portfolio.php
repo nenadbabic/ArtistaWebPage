@@ -64,10 +64,37 @@
                 <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
             <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-text">Že imate račun?</p></li>
                 <li class="dropdown">
-                    <a href="<?= BASE_URL . "logout" ?>" ><b>Odjava</b></a>
-                </li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Prijava</b> <span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    or
+                                    <form class="form" role="form" method="post" action="<?= BASE_URL . "login" ?>" accept-charset="UTF-8" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email naslov" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="pwdhash">Password</label>
+                                            <input type="password" class="form-control" id="pwdhash" name="pwdhash" placeholder="Geslo" required>
 
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Prijava</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="bottom text-center">
+                                    <a href="<?= BASE_URL . "registrationpage" ?>"><b>Registracija</b></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -106,9 +133,9 @@
 
                     ?><div class="column">
                     <div class="content">
-                        <img href="#" src="<?= UPIC_URL . $listing["path"] ?>" alt="Mountains" style="width:100%">
+                        <img href="#" src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="Mountains" style="width:100%">
                         <h3><?= $listing["lname"] ?></h3>
-                        <p><?= $listing["Description"] ?></p>
+                        <p><?= $listing["description"] ?></p>
                     </div>
                     </div>
                 <?php }?>

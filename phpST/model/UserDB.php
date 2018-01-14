@@ -35,14 +35,19 @@ class UserDB
     public static function getDescriptionById($id){
         $db = DBInit::getInstance();
         $statement = $db->prepare("select description from portfolio where seller = :id");
-        $statement->bindParam(":id", $id, PDO::PARAM_STR);
+        $statement->bindParam(":id", $id, PDO::PARAM_INT);
         $statement->execute();
         $description = $statement->fetch();
-
+        if($description == ""){
+            return $description = " ";
+        }
+        if(!$description){
+            return $description = " ";
+        }
         return implode("|",$description);
     }
 
-    public static function editportfolioinfo($name,$email,$description,$id){
+    public static function editportfolioinfo($name,$email,$description,$id,$sellerId){
 
         $db = DBInit::getInstance();
 
@@ -54,7 +59,7 @@ class UserDB
 
         $statement = $db->prepare("UPDATE portfolio SET description = :description WHERE seller = :id");
         $statement->bindParam(":description", $description, PDO::PARAM_STR);
-        $statement->bindParam(":id", $id, PDO::PARAM_INT);
+        $statement->bindParam(":id", $sellerId, PDO::PARAM_INT);
         $statement->execute();
     }
 
@@ -85,10 +90,25 @@ class UserDB
         $statement->bindParam(":email", $email, PDO::PARAM_STR);
         $statement->execute();
         $id = $statement->fetch();
-        /* TODO, napaka violata nek constraint
-        $statement = $db->prepare("INSERT INTO seller (user,rating) VALUES (:id,0)");
-        $statement->bindParam(":id", $id);
-        $statement->execute();*/
+        $identifikator = implode("",$id);
+        $statement = $db->prepare("INSERT INTO seller (`user`) VALUES (:id)");
+        $statement->bindParam(":id", $identifikator);
+        $statement->execute();
+        /*
+        $statement = $db->prepare("INSERT INTO portfolio (`user`) VALUES (:id)");
+        $statement->bindParam(":id", $identifikator);
+        $statement->execute();
+        */
+    }
+
+    public static function getSellerID($id){
+        $identifikatorOsebe = $id;
+        //$identifikatorOsebe = implode("",$id);
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("SELECT id FROM seller where user = :idUser");
+        $statement->bindParam(":idUser", $identifikatorOsebe);
+        $statement->execute();
+        return implode("",$statement->fetch());
     }
 
 

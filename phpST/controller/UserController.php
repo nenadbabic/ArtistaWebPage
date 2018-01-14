@@ -26,7 +26,7 @@ class UserController
         $info = [
             "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
             "information" => UserDB::getUser($_SESSION["userData"]),
-            "description" => UserDB::getDescriptionById($_SESSION["userData"]["id"])
+            "description" => UserDB::getDescriptionById(UserDB::getSellerID($_SESSION["userData"]["id"]))
         ];
         ViewHelper::render("view/portfolio.php", $info);
     }
@@ -35,13 +35,13 @@ class UserController
         $info = [
             "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
             "information" => UserDB::getUser($_SESSION["userData"]),
-            "description" => UserDB::getDescriptionById($_SESSION["userData"]["id"])
+            "description" => UserDB::getDescriptionById(UserDB::getSellerID($_SESSION["userData"]["id"]))
         ];
         ViewHelper::render("view/editPortfolio.php", $info);
     }
 
     public static function editportfolio(){
-        UserDB::editportfolioinfo($_POST["ime"].' '.$_POST["priimek"],$_POST["email"],$_POST["opis"],$_SESSION["userData"]["id"] );
+        UserDB::editportfolioinfo($_POST["ime"].' '.$_POST["priimek"],$_POST["email"],$_POST["opis"],$_SESSION["userData"]["id"],UserDB::getSellerID($_SESSION["userData"]["id"]));
         ViewHelper::render("view/editPortfolio.php");
     }
     
