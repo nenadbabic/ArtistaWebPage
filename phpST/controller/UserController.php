@@ -19,7 +19,7 @@ class UserController
     }
 	
 	public static function showUploadPage(){
-        ViewHelper::render("view/uploadListing.php");
+        ViewHelper::render("view/publishProduct.php");
     }
 
     public static function showPortfolioPage(){

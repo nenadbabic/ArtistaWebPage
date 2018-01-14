@@ -6,7 +6,7 @@
  * Time: 11:50 PM
  */
 
-require_once("model/ListingDB");
+require_once("model/ListingDB.php");
 require_once("ViewHelper.php");
 
 
