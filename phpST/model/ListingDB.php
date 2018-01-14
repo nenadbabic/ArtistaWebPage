@@ -59,9 +59,9 @@ class ListingDB
         $statement = $db->prepare("Insert into listing (Listing.seller,Listing.price,Listing.description, Listing.shown, Listing.category, Listing.mainPic ,Listing.name) 
                                     values(:sellerid,:price,:description,1,:category,NULL, :productName)
                                  ");
+        $temp = UserDB::getSellerID($_SESSION["userData"]["id"]);
 
-
-        $statement->bindParam(":sellerid" , $_SESSION["userData"]["id"], PDO::PARAM_INT);
+        $statement->bindParam(":sellerid" , $temp, PDO::PARAM_INT);
         $statement->bindParam(":price" , $newListing["price"], PDO::PARAM_INT);
         $statement->bindParam(":description" , $newListing["description"], PDO::PARAM_STR);
         //$statement->bindParam(":shown" , $newListing["shown"], PDO::PARAM_INT);

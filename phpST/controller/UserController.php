@@ -24,7 +24,7 @@ class UserController
 
     public static function showPortfolioPage(){
         $info = [
-            "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
+            "listings" => ListingDB::getMyListings(UserDB::getSellerID($_SESSION["userData"]["id"])),
             "information" => UserDB::getUser($_SESSION["userData"]),
             "description" => UserDB::getDescriptionById(UserDB::getSellerID($_SESSION["userData"]["id"]))
         ];
@@ -33,7 +33,7 @@ class UserController
 
     public static function showEditPortfolio(){
         $info = [
-            "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
+            "listings" => ListingDB::getMyListings(UserDB::getSellerID($_SESSION["userData"]["id"])),
             "information" => UserDB::getUser($_SESSION["userData"]),
             "description" => UserDB::getDescriptionById(UserDB::getSellerID($_SESSION["userData"]["id"]))
         ];
