@@ -32,8 +32,12 @@ class ListingDB
 
     public static function getMyListings($id){
         $db = DBInit::getInstance(); # user.name = 'Anton Banana'
-        $statement = $db->prepare("SELECT listing.ID, Listing.Seller, Listing.Price, Listing.Description, listing.timestamp, listing.category, listing.name as lname, user.id, user.name 
-                                            FROM Listing INNER JOIN user ON Listing.seller = user.id AND user.id = :id
+        $statement = $db->prepare("SELECT l.*,u.name AS username, p.path FROM user u 
+                                            INNER JOIN seller s ON u.id = s.id INNER JOIN listing l ON s.id = l.seller 
+                                            INNER JOIN listing_picture lp ON l.id = lp.listing_id 
+                                            INNER JOIN picture p ON lp.picture_id = p.id 
+                                            WHERE l.seller = :id 
+                                            GROUP BY l.id
                                  ");
         $statement->bindParam(":id", $id );
         $statement->execute();

@@ -95,14 +95,7 @@
                     <hr>
                     <div class="row">
                         <!-- left column -->
-                        <div class="col-md-3">
-                            <div class="text-center">
-                                <img src="pictures/uporabnik.jpg" width="50%" class="avatar img-circle" alt="avatar">
-                                <h6>Naložite drugo sliko...</h6>
 
-                                <input type="file" class="form-control">
-                            </div>
-                        </div>
 
 
                         <div class="col-md-9 personal-info">
@@ -112,8 +105,8 @@
                                 Zaradi <strong>povečanega</strong> števila uporabnikov prihaja do degradacije storitev. Trenutno še odpravljamo problem. Hvala za razumevanje!
                             </div>
                             <h3>Podatki</h3>
-
-                            <form class="form-horizontal" role="form" method="post" action="<?= BASE_URL . "portfolioinfo" ?>" accept-charset="UTF-8" id="register-nav">
+                            <!-- FORM -->
+                            <form class="form-horizontal" role="form" method="post" action="<?= BASE_URL . "portfolioinfo" ?>" accept-charset="UTF-8" id="register-nav" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Ime:</label>
                                     <div class="col-lg-8">
@@ -142,6 +135,14 @@
                                     <label class="col-md-3 control-label"></label>
                                     <div class="col-md-8">
                                         <input type="submit" class="btn btn-primary" value="Shrani spremembe">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="text-center">
+                                        <h6>Naložite drugo sliko...</h6>
+
+                                        <input type="file" class="form-control" id="picture" name="picture" >
                                     </div>
                                 </div>
                             </form>

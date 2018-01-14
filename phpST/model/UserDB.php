@@ -111,6 +111,24 @@ class UserDB
         return implode("",$statement->fetch());
     }
 
+    public static function updateProfilePicture($idOsebe, $path){
+        $db = DBInit::getInstance();
+        $temp = UserDB::getSellerID($idOsebe);
+        $statement2 = $db->prepare( "CALL proc_addProfilePicture(:sellerID, :path)");
+        $statement2->bindParam(":sellerID" , $temp, PDO::PARAM_INT);
+        $statement2->bindParam(":path",$path, PDO::PARAM_STR);
+        $statement2->execute();
+    }
+
+    public static function getProfilePath($sellerId){
+
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("SELECT path FROM picture where seller = :sellerId and isProfile = 1");
+        $statement->bindParam(":sellerId", $sellerId);
+        $statement->execute();
+        return implode("",$statement->fetch());
+    }
+
 
 
     /*public static function deleteAll() {

@@ -24,9 +24,10 @@ class UserController
 
     public static function showPortfolioPage(){
         $info = [
-            "listings" => ListingDB::getMyListings(UserDB::getSellerID($_SESSION["userData"]["id"])),
+            "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
             "information" => UserDB::getUser($_SESSION["userData"]),
-            "description" => UserDB::getDescriptionById(UserDB::getSellerID($_SESSION["userData"]["id"]))
+            "description" => UserDB::getDescriptionById(UserDB::getSellerID($_SESSION["userData"]["id"])),
+            "profilePath" => UserDB::getProfilePath(UserDB::getSellerID($_SESSION["userData"]["id"]))
         ];
         ViewHelper::render("view/portfolio.php", $info);
     }
@@ -42,7 +43,38 @@ class UserController
 
     public static function editportfolio(){
         UserDB::editportfolioinfo($_POST["ime"].' '.$_POST["priimek"],$_POST["email"],$_POST["opis"],$_SESSION["userData"]["id"],UserDB::getSellerID($_SESSION["userData"]["id"]));
-        ViewHelper::render("view/editPortfolio.php");
+
+        $postOkay =  isset($_POST["ime"]) && !empty($_POST["ime"]) &&
+            isset($_POST["priimek"]) && !empty($_POST["priimek"]) &&
+            isset($_POST["email"]) && !empty($_POST["email"])&&
+            isset($_POST["opis"]) && !empty($_POST["opis"]);
+
+        $fileSet = isset($_FILES["picture"]);
+
+        if ($postOkay){
+            if ($fileSet){
+
+                $ext = '.png';
+                $filename = '..\public\pictures\\' . "profile" . time() . $ext;
+
+                if (!is_uploaded_file($_FILES['picture']['tmp_name']) or
+                    !copy($_FILES['picture']['tmp_name'], $filename))
+                {
+                    echo "<script type='text/javascript'>alert('Samo .png format!');</script>";
+                }else{
+
+                    UserDB::updateProfilePicture($_SESSION["userData"]["id"], $filename);
+
+                    echo "<script type='text/javascript'>alert('Podatki uspesno posodobljeni!');</script>";
+                    ViewHelper::redirect($BASE_URL . "portfolio");
+                }
+
+
+            }
+
+
+        }
+        /*ViewHelper::render("view/editPortfolio.php");*/
     }
     
 

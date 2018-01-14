@@ -92,7 +92,7 @@
             <div class="main">
 
                 <h2><?= substr($information["email"], 0, strpos($information["email"], '@'));?><a href="<?= BASE_URL . "editportfolio" ?>">&#9881;</a></h2>
-                <img src="<?= PIC_URL . "uporabnik.JPG" ?>" style="width:10%">
+                <img src="<?= UPIC_URL . $profilePath ?>" style="width:10%">
                 <div id="opisOsebe">
                     <br>
                     <p>Ime: <?= $information["name"] ?> </p>
@@ -108,9 +108,10 @@
 
                     ?><div class="column">
                     <div class="content">
-                        <img href="#" src="<?= PIC_URL . "index-picture1.jpg" ?>" alt="Mountains" style="width:100%">
-                        <h3><?= $listing["lname"] ?></h3>
-                        <p><?= $listing["Description"] ?></p>
+                        <img href="#" src="<?= UPIC_URL . $listing["path"] ?>" alt="Mountains" style="width:100%">
+                        <h3><?= $listing["name"] ?></h3>
+                        <p><?= $listing["description"] ?></p>
+                        <h4><?= $listing["price"] ?></h4>
                     </div>
                     </div>
                 <?php }?>
