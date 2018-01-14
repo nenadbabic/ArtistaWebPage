@@ -42,6 +42,22 @@ class UserDB
         return implode("|",$description);
     }
 
+    public static function editportfolioinfo($name,$email,$description,$id){
+
+        $db = DBInit::getInstance();
+
+        $statement = $db->prepare("UPDATE user SET name = :name, email = :email WHERE id = :id");
+        $statement->bindParam(":name", $name);
+        $statement->bindParam(":email", $email);
+        $statement->bindParam(":id", $id);
+        $statement->execute();
+
+        $statement = $db->prepare("UPDATE portfolio SET description = :description WHERE seller = :id");
+        $statement->bindParam(":description", $description, PDO::PARAM_STR);
+        $statement->bindParam(":id", $id, PDO::PARAM_INT);
+        $statement->execute();
+    }
+
     public static function getAllUsers() {
         $db = DBInit::getInstance();
 
@@ -65,14 +81,14 @@ class UserDB
         $statement->bindParam(":type", $type);
         $statement->execute();
 
-        $statement1 = $db->prepare("SELECT id FROM user WHERE email = :email ");
-        $statement1->bindParam(":email", $email, PDO::PARAM_STR);
-        $statement1->execute();
-        $id = $statement1->fetch();
-
-        $statement2 = $db->prepare("INSERT INTO seller (id) VALUES (:id)");
-        $statement2->bindParam(":id", $id);
-        $statement2->execute();
+        $statement = $db->prepare("SELECT id FROM user WHERE email = :email ");
+        $statement->bindParam(":email", $email, PDO::PARAM_STR);
+        $statement->execute();
+        $id = $statement->fetch();
+        /* TODO, napaka violata nek constraint
+        $statement = $db->prepare("INSERT INTO seller (user,rating) VALUES (:id,0)");
+        $statement->bindParam(":id", $id);
+        $statement->execute();*/
     }
 
 

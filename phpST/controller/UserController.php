@@ -42,6 +42,20 @@ class UserController
         ViewHelper::render("view/portfolio.php", $info);
     }
 
+    public static function showEditPortfolio(){
+        $info = [
+            "listings" => ListingDB::getMyListings($_SESSION["userData"]["id"]),
+            "information" => UserDB::getUser($_SESSION["userData"]),
+            "description" => UserDB::getDescriptionById($_SESSION["userData"]["id"])
+        ];
+        ViewHelper::render("view/editPortfolio.php", $info);
+    }
+
+    public static function editportfolio(){
+        UserDB::editportfolioinfo($_POST["ime"].' '.$_POST["priimek"],$_POST["email"],$_POST["opis"],$_SESSION["userData"]["id"] );
+        ViewHelper::render("view/editPortfolio.php");
+    }
+
 
     public static function showAbout(){
         $variable = [
@@ -122,7 +136,7 @@ class UserController
         if ($postOkay){
             UserDB::createUser($_POST["fname"].' '.$_POST["lname"],$_POST["regEmail"],$_POST["pass"],date("Y-m-d H:i:s"), 0);
             echo "<script type='text/javascript'>alert('Uporabnik ustvarjen!');</script>";
-            ViewHelper::render("view/homepage.php", ["user" => ""]);
+            ViewHelper::render("view/homepage.php", ["listings" => ListingDB::getAllListings()]);
         }else{
             self::showLoginRegister();
         }

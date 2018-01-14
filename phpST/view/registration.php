@@ -29,35 +29,19 @@
     </head>
 </head>
 <body>
-<!-- multistep form -->
-<form id="msform">
-    <!-- fieldsets -->
-    <fieldset>
-        <h2 class="fs-title">Ustvari račun.</h2>
-        <h3 class="fs-subtitle">Artista - Najdi umetnika v sebi!</h3>
-        <input type="text" name="fname" placeholder="Ime" />
-        <input type="text" name="lname" placeholder="Priimek" />
-        <input type="text" name="email" placeholder="Email" />
-        <input type="password" name="pass" placeholder="Geslo" />
-        <input type="password" name="cpass" placeholder="Potrdi geslo" />
-        <input id="button" type="button" name="next" class="next action-button" value="Naprej" />
-    </fieldset>
-</form>
 
-<form id="msform">
-    <form class="form" role="form" method="post" action="<?= BASE_URL . "register" ?>" accept-charset="UTF-8" id="register-nav">
-        <h2 class="fs-title">Ustvari račun.</h2>
-        <h3 class="fs-subtitle">Artista - Najdi umetnika v sebi!</h3>
-        <input type="text" name="fname" id="fname" placeholder="Ime" />
-        <input type="text" name="lname" id="lname" placeholder="Priimek" />
-        <input type="text" name="regEmail" id="regEmail" placeholder="Email" />
-        <input type="password" name="pass" id="pass" placeholder="Geslo" />
-        <input type="password" name="cpass" id="cpass" placeholder="Potrdi geslo" />
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Naprej</button>
-        </div>
+<form class="form" method="post" action="<?= BASE_URL . "register" ?>">
+    <h2 class="fs-title">Ustvari račun.</h2>
+    <h3 class="fs-subtitle">Artista - Najdi umetnika v sebi!</h3>
+    <input type="text" name="fname" id="fname" placeholder="Ime" />
+    <input type="text" name="lname" id="lname" placeholder="Priimek" />
+    <input type="text" name="regEmail" id="regEmail" placeholder="Email" />
+    <input type="password" name="pass" id="pass" placeholder="Geslo" />
+    <input type="password" name="cpass" id="cpass" placeholder="Potrdi geslo" />
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Naprej</button>
+    </div>
 
-    </form>
 </form>
 </body>
 </html>

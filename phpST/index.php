@@ -48,6 +48,19 @@ $urls = [
         }
     },
 
+    "editportfolio" => function () {
+        UserController::showEditPortfolio();
+
+    },
+
+    "portfolioinfo" => function () {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            UserController::editportfolio();
+        }
+        UserController::showEditPortfolio();
+
+    },
+
     "logout" => function(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             UserController::logout();

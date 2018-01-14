@@ -116,7 +116,7 @@
         <div class="col-md-9">
             <div class="main">
 
-                <h2><?= substr($information["email"], 0, strpos($information["email"], '@'));?></h2>
+                <h2><?= substr($information["email"], 0, strpos($information["email"], '@'));?><a href="<?= BASE_URL . "editportfolio" ?>">&#9881;</a></h2>
                 <img src="<?= PIC_URL . "uporabnik.JPG" ?>" style="width:10%">
                 <div id="opisOsebe">
                     <br>
