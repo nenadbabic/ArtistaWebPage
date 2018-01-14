@@ -157,7 +157,7 @@
                                     <p><?= $listing["description"] ?></p>
                                 </div>
                                 <div>
-                                    <button> Kupi </button>
+                                    <button><a href="<?= BASE_URL . "purchase" ?>">Kupi zdaj!</a> </button>
                                 </div>
 
                                 <div class="ratings">

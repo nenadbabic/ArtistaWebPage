@@ -50,6 +50,9 @@ $urls = [
             UserController::showHomepage();
         }
     },
+	"purchase" => function(){
+        UserController::showPurchasePage();
+    },
 
     "editportfolio" => function () {
         UserController::showEditPortfolio();

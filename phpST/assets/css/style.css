@@ -2,10 +2,11 @@
 
 body {
   padding: 60px 0px;
-  background-color: #B2D1E5;
+  background-color: whitesmoke;
   margin: 0 auto;
   width: 600px;
 }
+
 .body-text {
   padding: 0 20px 30px 20px;
   font-family: "Roboto";
@@ -17,12 +18,12 @@ body {
   width: 100%;
 }
 .card-wrapper {
-  background-color: #6FB7E9;
+  background-color: #ec4259;
   padding: 10px 0px;
   width: 100%;
 }
 .personal-information {
-  background-color: #3C8DC5;
+  background-color: #ec4259;
   color: #fff;
   padding: 1px 0px;
   text-align: center;
@@ -52,7 +53,7 @@ input[type="submit"]{
   height: 60px;
   width: 100%;
   border: none;
-  background-color: #3C8DC5;
+  background-color: #ec4259;
   color: #fff;
   margin-top: 2px;
   curson: pointer;
@@ -61,7 +62,7 @@ input[type="submit"]{
   font-weight: bold;
 }
 input[type="submit"]:hover{
-  background-color: #6FB7E9;
+  background-color: #ec4259;
   transition: 0.3s ease;
 }
 #column-left {
