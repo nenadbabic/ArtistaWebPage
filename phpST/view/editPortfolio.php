@@ -64,6 +64,12 @@
                 </div>
                 <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="<?= BASE_URL . "logout" ?>" ><b>Odjava</b></a>
+                </li>
+
+            </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

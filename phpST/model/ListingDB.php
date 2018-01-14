@@ -69,6 +69,8 @@ class ListingDB
         $statement->bindParam(":productName" , $newListing["productName"], PDO::PARAM_STR);
         $statement->execute();
 
+
+
         $getListingID = $db->prepare("SELECT id FROM listing ORDER BY id DESC LIMIT 1");
         $getListingID->execute();
         $id = $getListingID->fetch();

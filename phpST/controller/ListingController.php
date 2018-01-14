@@ -25,20 +25,15 @@ class ListingController
 
         if ($postOkay){
             if ($fileSet){
-                echo "pride do controlerrja";
 
                 $ext = '.png';
-                $filename = '.\assets\pictures\\' . time() . $ext;
+                $filename = '..\public\pictures\\' . time() . $ext;
 
                 if (!is_uploaded_file($_FILES['picture']['tmp_name']) or
                     !copy($_FILES['picture']['tmp_name'], $filename))
                 {
-                    //ViewHelper::render("view/uploadListing.php");
                     echo "<script type='text/javascript'>alert('Samo .png format!');</script>";
                 }else{
-
-                    echo "huhu";
-
                     $newListing = [
                         "price" => $_POST["price"],
                         "description" => $_POST["description"],

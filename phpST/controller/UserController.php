@@ -83,6 +83,9 @@ class UserController
                     $_SESSION["login"] = "true";
                     $_SESSION["userData"] = $userdata;
                     $_SESSION["user_name"] = $userdata["name"];
+
+
+
                     $user = [
                         "user" => $userdata
                     ];

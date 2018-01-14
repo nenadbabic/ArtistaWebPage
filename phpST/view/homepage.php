@@ -147,11 +147,14 @@
                             ?><div class="col-sm-4 col-lg-4 col-md-4">
 
                             <div class="thumbnail">
-                                <h4><a href="#"><?= $listing["name"] ?></a>
-                                </h4>
+                                <div>
+                                    <h4><a href="#"><?= $listing["name"] ?></a>
+                                    </h4>
+                                </div>
+
                                 <img src="<?= UPIC_URL . $listing["path"] ?>" alt="">
                                 <div class="caption">
-                                    <h4 class="pull-right">30.00€</h4>
+                                    <h4 class="pull-right"><?= $listing["price"] ?>€</h4>
 
                                     <h4><a href="#"><?= $listing["username"] ?></a>
                                     </h4>
@@ -178,11 +181,13 @@
                         foreach ($listings as $listing){
 
                         ?><div class="thumbnail">
-                            <h4><a href="#"><?= $listing["name"] ?></a>
-                            </h4>
+                            <div>
+                                <h4><a href="#"><?= $listing["name"] ?></a>
+                                </h4>
+                            </div>
                             <img src="<?= UPIC_URL . $listing["path"] ?>" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">30.00€</h4>
+                                <h4 class="pull-right"><?= $listing["price"] ?>€</h4>
 
                                 <h4><a href="#"><?= $listing["username"] ?></a>
                                 </h4>
