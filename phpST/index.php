@@ -7,6 +7,7 @@
  */
 require_once("controller/UserController.php");
 require_once("controller/ProjectController.php");
+require_once ("controller/ListingController.php");
 
 # Define a global constant pointing to the URL of the application
 define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
@@ -66,10 +67,17 @@ $urls = [
             UserController::logout();
         }
     },
+  
+	"upload" => function(){
+        UserController::showUploadPage();
+    },
 
-    "about" => function () {
-        UserController::showAbout();
-
+    "uploadListing" => function(){
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            ListingController::uploadListing();
+        }else{
+            UserController::showUploadPage();
+        }
     },
 
     "portfolio" => function(){
@@ -87,16 +95,7 @@ $urls = [
     "" => function() {
         ViewHelper::redirect(BASE_URL . "homepage");
     },
-
-    "login/user" => function () {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            UserController::login();
-
-        }else{
-            UserController::showLoginRegister();
-        }
-
-    },
+   
 
     "registrationpage" => function () {
         UserController::showRegistrationPage();
@@ -110,28 +109,8 @@ $urls = [
         }else{
             UserController::showHomepage();
         }
-    },
-
-    "logout"  => function(){
-        session_unset();
-        session_destroy();
-        UserController::showHomepage();
-    },
-
-    "createProject" => function(){
-        if (isset($_SESSION["login"]) && $_SESSION["login"] == "true"){
-            ProjectController::showCreateProjectPage();
-        }
-
-    },
-    "createProject/new" => function(){
-        if (isset($_SESSION["login"]) && $_SESSION["login"] == "true"){
-            ProjectController::createProject();
-        }
-
     }
-
-
+    
 
 ];
 
