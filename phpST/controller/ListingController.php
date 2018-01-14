@@ -13,7 +13,52 @@ require_once("ViewHelper.php");
 
 class ListingController
 {
+	public static function uploadListing(){
 
+        $postOkay =  isset($_POST["price"]) && !empty($_POST["price"]) &&
+            isset($_POST["description"]) && !empty($_POST["description"]) &&
+            isset($_POST["vrstaIzdelka"]) && !empty($_POST["vrstaIzdelka"])&&
+            isset($_POST["productName"]) && !empty($_POST["productName"]);
+
+        $fileSet = isset($_FILES["picture"]);
+
+        if ($postOkay){
+            if ($fileSet){
+                echo "pride do controlerrja";
+
+                $ext = '.png';
+                $filename = '.\assets\pictures\\' . time() . $ext;
+
+                if (!is_uploaded_file($_FILES['picture']['tmp_name']) or
+                    !copy($_FILES['picture']['tmp_name'], $filename))
+                {
+                    //ViewHelper::render("view/uploadListing.php");
+                    echo "<script type='text/javascript'>alert('Samo .png format!');</script>";
+                }else{
+
+                    echo "huhu";
+
+                    $newListing = [
+                        "price" => $_POST["price"],
+                        "description" => $_POST["description"],
+                        "category" => $_POST["vrstaIzdelka"],
+                        "productName" => $_POST["productName"],
+                        "picture" => $filename
+                    ];
+
+                    ListingDB::uploadListing($newListing);
+                    ViewHelper::render("view/portfolio.php");
+                }
+
+
+            }
+
+
+        }
+
+
+
+    }
 
 
 }

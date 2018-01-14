@@ -49,7 +49,7 @@
                     <a href="#" class="dropdown-toggle " data-toggle="dropdown">Moj Profil <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">Moji izdelki</a></li>
-                        <li><a href="#">Dodaj nov izdelek</a></li>
+                        <li><a href="<?= BASE_URL . "upload"?>">Dodaj nov izdelek</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Uredi profil</a></li>
                         <li class="divider"></li>
@@ -152,7 +152,9 @@
                                     <h4 class="pull-right">30.00€</h4>
                                     <h4><a href="#"><?= $listing["lname"] ?></a>
                                     </h4>
-                                    <p>Super kvaliteta!</p>
+                                    <h4><a href="#"><?= $listing["name"] ?></a>
+                                    </h4>
+                                    <p><?= $listing["Description"] ?></p>
                                 </div>
                                 <div>
                                     <button> Kupi </button>
@@ -182,7 +184,7 @@
                                     <h4 class="pull-right"><?= $listing["Price"] ?>€</h4>
                                     <h4><a href="#"><?= $listing["name"] ?></a>
                                     </h4>
-                                    <p>Super kvaliteta!</p>
+                                    <p><?= $listing["Description"] ?></p>
                                 </div>
 
                                 <div class="ratings">

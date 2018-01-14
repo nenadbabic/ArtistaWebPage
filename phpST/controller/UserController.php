@@ -7,21 +7,6 @@ require_once("ViewHelper.php");
 
 class UserController
 {
-    public static function getUserTest($email){
-        $user = [ UserDB::getUser($email)];
-        ViewHelper::render("view/portfolio.php", $user);
-    }
-
-    public static function getAll() {
-        # Reads books from the database
-        $variables = [
-            "users" => UserDB::getAllUsers()
-        ];
-
-        # Renders the view and sets the $variables array into view's scope
-        ViewHelper::render("view/loginRegister.php", $variables);
-    }
-
     public static function showHomepage(){
         $listings = [
             "listings" => ListingDB::getAllListings()
@@ -31,6 +16,10 @@ class UserController
 
     public static function showRegistrationPage(){
         ViewHelper::render("view/registration.php");
+    }
+	
+	public static function showUploadPage(){
+        ViewHelper::render("view/uploadListing.php");
     }
 
     public static function showPortfolioPage(){
@@ -55,20 +44,7 @@ class UserController
         UserDB::editportfolioinfo($_POST["ime"].' '.$_POST["priimek"],$_POST["email"],$_POST["opis"],$_SESSION["userData"]["id"] );
         ViewHelper::render("view/editPortfolio.php");
     }
-
-
-    public static function showAbout(){
-        $variable = [
-            "user" => ""
-        ];
-        ViewHelper::render("view/about.php", $variable);
-    }
-    public static function showLoginRegister(){
-        $variables = [
-            "user" => ""
-        ];
-        ViewHelper::render("view/loginRegister.php", $variables);
-    }
+    
 
     public static function showMyProducts(){
         $listings = [
