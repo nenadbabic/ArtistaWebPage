@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -16,7 +16,6 @@
     <!-- Custom CSS -->
     <link href="<?= CSS_URL . "shop-homepage.css" ?>" rel="stylesheet">
     <link href="<?= CSS_URL . "artista.css" ?>" rel="stylesheet">
-    <link href="<?= CSS_URL . "style.css" ?>" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -47,7 +46,8 @@
                 <li class="bg-art"><a href="<?= BASE_URL . "homepage"?>">Domov</a></li>
                 <li class="bg-art"><a href="<?= BASE_URL . "about"?>">O nas</a></li>
                 <?php
-                if (isset($_SESSION["login"])){ ?>
+                if (isset($_SESSION["login"])){
+                    ?>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle " data-toggle="dropdown">Moj Profil <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -57,7 +57,9 @@
                             <li class="divider"></li>
                             <li><a href="<?= BASE_URL . "portfolio"?>">Moj Portfolio</a></li>
                         </ul>
-                    </li> <?php } ?>
+                    </li>
+                <?php } ?>
+
             </ul>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
@@ -122,34 +124,54 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<form>
-    <div class="form-container">
-        <div class="personal-information">
-            <h1>Informacije o plačilu</h1>
-        </div> <!-- end of personal-information -->
 
-        <input id="input-field" type="text" name="streetaddress" required="required" autocomplete="on" maxlength="45" placeholder="Ulica"/>
-        <input id="column-left" type="text" name="city" required="required" autocomplete="on" maxlength="20" placeholder="Mesto"/>
-        <input id="column-right" type="text" name="zipcode" required="required" autocomplete="on" pattern="[0-9]*" maxlength="5" placeholder="Poštna številka"/>
-        <input id="input-field" type="email" name="email" required="required" autocomplete="on" maxlength="40" placeholder="Email"/>
 
-        <div class="card-wrapper"></div>
-        <input id="column-left" type="text" name="first-name" placeholder="Ime"/>
-        <input id="column-right" type="text" name="last-name" placeholder="Priimek"/>
-        <input id="input-field" type="text" name="number" placeholder="Številka kartice"/>
-        <input id="column-left" type="text" name="expiry" placeholder="MM / YY"/>
-        <input id="column-right" type="text" name="cvc" placeholder="CCV"/>
-        <input id="input-button" type="submit" value="Potrdi"/>
-</form>
+<div class="art-container">
+    <div class="col-lg-12">
+        <div class="row">
+            <h1>Smo skupina študentov FRI</h1>
+            <h2>To je projekt, ki smo ga izdelali za predmet Tehnologija programske opreme</h2>
+            <p>Pri projektu smo sodelovali:</p>
+            <ul>
+                <li>Nenad Babić</li>
+                <li>Rok Dolinar</li>
+                <li>Tomaž Lunder</li>
+                <li>Gregor Sintič</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
 </div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/card.js'></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/121761/jquery.card.js'></script>
 
 
-<script src="<?= js_URL . "index.js" ?>"></script>
+</div>
 
 
+<!-- /.container -->
+
+<div class="container">
+    <hr>
+    <!-- Footer
+    <footer class="art-footer">
+
+            <div class="col-lg-12" style="bottom: 0;">
+                <p>Copyright &copy; Artista 2017</p>
+            </div>
+
+    </footer>-->
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="<?= js_URL . "jquery.js" ?>"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="<?= js_URL . "bootstrap.min.js" ?>"></script>
 
 </body>
 

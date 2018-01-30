@@ -104,7 +104,9 @@
                 <?php
                 foreach ($listings as $listing){
 
-                    ?><div class="column">
+                    ?>
+
+                    <div class="column">
                     <div class="content">
                         <img href="#" src="<?= UPIC_URL . $listing["path"] ?>" alt="Mountains" style="width:100%">
                         <h3><?= $listing["name"] ?></h3>
@@ -123,18 +125,7 @@
 
     <!-- /.container -->
 
-    <div class="container">
-        <hr>
-        <!-- Footer -->
-        <footer class="art-footer">
-            <div class="row" padding-right="0" paddingleft="0">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Artista 2017</p>
-                </div>
-            </div>
-        </footer>
 
-    </div>
     <!-- /.container -->
 
     <!-- jQuery -->

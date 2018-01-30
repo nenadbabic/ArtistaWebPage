@@ -27,6 +27,9 @@
 </head>
 
 <body>
+
+
+
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -45,6 +48,8 @@
             <ul class="nav navbar-nav ">
                 <li class="bg-art"><a href="<?= BASE_URL . "homepage"?>">Domov</a></li>
                 <li class="bg-art"><a href="<?= BASE_URL . "about"?>">O nas</a></li>
+                <?php
+                if (isset($_SESSION["login"])){ ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle " data-toggle="dropdown">Moj Profil <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -54,11 +59,11 @@
                         <li class="divider"></li>
                         <li><a href="<?= BASE_URL . "portfolio"?>">Moj Portfolio</a></li>
                     </ul>
-                </li>
+                </li> <?php } ?>
             </ul>
-            <form class="navbar-form navbar-left" role="search">
+            <form class="navbar-form navbar-left" role="search" method="post" action="<?= BASE_URL . "search" ?>">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input id="searchbar" type="text" name="searchbar" class="form-control" placeholder="Išči...">
                 </div>
                 <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
@@ -128,8 +133,10 @@
         <div class="col-md-2">
             <p class="lead"></p>
             <div class="list-group">
-                <a href="<?= VIEW_URL . "slikarstvo.html" ?>" class="list-group-item">Slikarstvo</a>
-                <a href="<?= VIEW_URL . "kiparstvo.html" ?>" class="list-group-item">Kiparstvo</a>
+                <a href="<?= BASE_URL . "homepage" ?>" class="list-group-item">Vse</a>
+                <a href="<?= BASE_URL . "slikarstvo" ?>" class="list-group-item">Slikarstvo</a>
+                <a href="<?= BASE_URL . "kiparstvo" ?>" class="list-group-item">Kiparstvo</a>
+                <a href="<?= BASE_URL . "drugo" ?>" class="list-group-item">Drugo</a>
             </div>
         </div>
 
@@ -144,11 +151,11 @@
 
                             <div class="thumbnail">
                                 <div>
-                                    <h4><a href="#"><?= $listing["name"] ?></a>
+                                    <h4><a  href="#"><?= $listing["name"] ?></a>
                                     </h4>
                                 </div>
 
-                                <img src="<?= UPIC_URL . $listing["path"] ?>" alt="">
+                                <img class="listing-img" src="<?= UPIC_URL . $listing["path"] ?>" alt="">
                                 <div class="caption">
                                     <h4 class="pull-right"><?= $listing["price"] ?>€</h4>
 
@@ -157,7 +164,7 @@
                                     <p><?= $listing["description"] ?></p>
                                 </div>
                                 <div>
-                                    <button><a href="<?= BASE_URL . "purchase" ?>">Kupi zdaj!</a> </button>
+                                    <button id="buybutton"><a href="<?= BASE_URL . "purchase" ?>">Kupi zdaj!</a> </button>
                                 </div>
 
                                 <div class="ratings">
@@ -176,12 +183,14 @@
                     }else{
                         foreach ($listings as $listing){
 
-                        ?><div class="thumbnail">
+                        ?>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
                             <div>
                                 <h4><a href="#"><?= $listing["name"] ?></a>
                                 </h4>
                             </div>
-                            <img src="<?= UPIC_URL . $listing["path"] ?>" alt="">
+                            <img class="listing-img" src="<?= UPIC_URL . $listing["path"] ?>" alt="">
                             <div class="caption">
                                 <h4 class="pull-right"><?= $listing["price"] ?>€</h4>
 
@@ -201,6 +210,7 @@
                                 </p>
                             </div>
                             </div>
+                        </div>
                     <?php }
                      } ?>
 
@@ -216,18 +226,7 @@
 
 <!-- /.container -->
 
-<div class="container">
-    <hr>
-    <!-- Footer -->
-    <footer class="art-footer">
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Artista 2017</p>
-            </div>
-        </div>
-    </footer>
 
-</div>
 <!-- /.container -->
 
 <!-- jQuery -->

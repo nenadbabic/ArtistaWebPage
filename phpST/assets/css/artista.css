@@ -115,7 +115,9 @@ body{
   height: 100%;
 }
 
-button {
+
+
+#buybutton {
     background: #ec4259;
     background-image: -webkit-linear-gradient(top,#ec4259, #ef677a);
     background-image: -moz-linear-gradient(top, #ec4259, #ef677a);
@@ -132,7 +134,7 @@ button {
     text-decoration: none;
     width: 100%;
 }
-button:hover {
+#buybutton :hover {
     background: #ec4259;
     background-image: -webkit-linear-gradient(top, #ec4259, #ef677a);
     background-image: -moz-linear-gradient(top, #ec4259, #ef677a);

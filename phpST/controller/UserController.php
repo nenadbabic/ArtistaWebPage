@@ -26,6 +26,10 @@ class UserController
 	    ViewHelper::render("view/purchase.php");
     }
 
+    public static function showAboutPage(){
+	    ViewHelper::render("view/about.php");
+    }
+
     public static function showPortfolioPage(){
         $info = [
             "listings" => ListingDB::getMyListings(UserDB::getSellerID($_SESSION["userData"]["id"])),
@@ -45,7 +49,40 @@ class UserController
         ViewHelper::render("view/editPortfolio.php", $info);
     }
 
-    public static function editportfolio(){
+
+    public static function onlySlike(){
+        $listings = [
+            "listings" => ListingDB::getOnlyPaintings()
+        ];
+        ViewHelper::render("view/homepage.php", $listings);
+
+    }
+
+    public static function onlyKipi(){
+        $listings = [
+            "listings" => ListingDB::getOnlyStatues()
+        ];
+        ViewHelper::render("view/homepage.php", $listings);
+
+    }
+    public static function onlyOther(){
+        $listings = [
+            "listings" => ListingDB::getOther()
+        ];
+        ViewHelper::render("view/homepage.php", $listings);
+
+    }
+
+    public static function search(){
+        $listings = [
+            "listings" => ListingDB::search($_POST["searchbar"])
+        ];
+        ViewHelper::render("view/homepage.php", $listings);
+
+
+    }
+
+        public static function editportfolio(){
         UserDB::editportfolioinfo($_POST["ime"].' '.$_POST["priimek"],$_POST["email"],$_POST["opis"],$_SESSION["userData"]["id"],UserDB::getSellerID($_SESSION["userData"]["id"]));
 
         $postOkay =  isset($_POST["ime"]) && !empty($_POST["ime"]) &&

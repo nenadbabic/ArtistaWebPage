@@ -84,6 +84,9 @@ $urls = [
             UserController::showUploadPage();
         }
     },
+    "about" => function(){
+        UserController::showAboutPage();
+    },
 
     "portfolio" => function(){
         UserController::showPortfolioPage();
@@ -108,14 +111,31 @@ $urls = [
     },
 
     "register" => function(){
-        echo "123123";
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             UserController::register();
         }else{
             UserController::showHomepage();
         }
+    },
+
+    "slikarstvo" => function () {
+        UserController::onlySlike();
+    },
+
+    "kiparstvo" => function () {
+        UserController::onlyKipi();
+    },
+
+    "drugo" => function () {
+        UserController::onlyOther();
+    },
+
+    "search" => function () {
+        UserController::search();
     }
-    
+
+
 
 ];
 

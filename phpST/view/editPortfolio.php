@@ -151,18 +151,7 @@
 
                 <!-- /.container -->
 
-                <div class="container">
-                    <hr>
-                    <!-- Footer -->
-                    <footer class="art-footer">
-                        <div class="row" padding-right="0" paddingleft="0">
-                            <div class="col-lg-12">
-                                <p>Copyright &copy; Artista 2017</p>
-                            </div>
-                        </div>
-                    </footer>
 
-                </div>
                 <!-- /.container -->
 
                 <!-- jQuery -->

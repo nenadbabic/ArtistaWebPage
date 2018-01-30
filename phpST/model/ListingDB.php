@@ -56,7 +56,64 @@ WHERE listing.seller = :id");
         }
     }
 
-	public static function uploadListing($newListing){
+    public static function getOnlyPaintings(){
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("SELECT listing.*, artista.user.name as username, picture.path
+FROM listing
+LEFT JOIN picture ON listing.mainPic = picture.id
+LEFT JOIN seller ON listing.seller = seller.id
+LEFT JOIN artista.user ON seller.user = artista.user.id
+WHERE listing.category = 1");
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+    public static function getOnlyStatues(){
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("SELECT listing.*, artista.user.name as username, picture.path
+FROM listing
+LEFT JOIN picture ON listing.mainPic = picture.id
+LEFT JOIN seller ON listing.seller = seller.id
+LEFT JOIN artista.user ON seller.user = artista.user.id
+WHERE listing.category = 2
+");
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+    public static function getOther(){
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("SELECT listing.*, artista.user.name as username, picture.path
+FROM listing
+LEFT JOIN picture ON listing.mainPic = picture.id
+LEFT JOIN seller ON listing.seller = seller.id
+LEFT JOIN artista.user ON seller.user = artista.user.id
+WHERE listing.category = 3
+");
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+    public static function search($search){
+        $db = DBInit::getInstance();
+        $statement = $db->prepare("SELECT listing.*, artista.user.name as username, picture.path
+FROM listing
+LEFT JOIN picture ON listing.mainPic = picture.id
+LEFT JOIN seller ON listing.seller = seller.id
+LEFT JOIN artista.user ON seller.user = artista.user.id
+WHERE listing.name LIKE :search OR artista.user.name LIKE :search
+");
+        $statement->bindParam(":search" , $search, PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+
+    public static function uploadListing($newListing){
         $db = DBInit::getInstance();
         $statement = $db->prepare("Insert into listing (Listing.seller,Listing.price,Listing.description, Listing.shown, Listing.category, Listing.mainPic ,Listing.name) 
                                     values(:sellerid,:price,:description,1,:category,NULL, :productName)
